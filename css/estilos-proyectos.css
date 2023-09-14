@@ -238,7 +238,7 @@ nav a:hover::before {
 
 p3{
   
-    font-size: 17px;
+    font-size: 90%;
   width: 257px;
     height: 13px;
 z-index:100;
@@ -246,7 +246,7 @@ z-index:100;
 	 
 	 position: absolute;
     left:45%;
-  bottom: 10px;
+  bottom: 1%;
     color: #fff;}
 	
 	
