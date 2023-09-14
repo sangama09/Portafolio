@@ -239,14 +239,14 @@ nav a:hover::before {
 p3{
   
     font-size: 17px;
-  width: 45%;
-    height: 1%;
-
+  width: 257px;
+    height: 13px;
+z-index:100;
     
 	 
 	 position: absolute;
-    left:615px;
-  bottom: 10px;
+    left:45%;
+  bottom: 1%;
     color: #fff;}
 	
 	
