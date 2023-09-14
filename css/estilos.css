@@ -1,0 +1,204 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+width:100%;
+		height:100%;
+
+	background:#262323; /* Gris oscuro */
+	display: flex;
+	justify-content: center;
+	height:100vh;
+	margin:0;
+		
+		}
+		
+	.container{
+		width:97%;
+		height:93%;
+		background-color:#000000;   
+		margin:	auto; /*para que se centre el cuadro*/ 
+		border: 2px solid #fff; /* Borde de 2px de ancho y color blanco (#fff) */  
+		 position: relative;
+    z-index: 99;
+		 overflow-y: auto;
+		}
+
+	#particles-js{
+	
+		height: 93%;
+		width: 92% ;
+		position: fixed;
+		z-index: -1;	
+	}
+	
+	
+	
+	/* Estilos para el botón */
+	
+	.chekbox{
+	 width: 2.3%;
+    height: 19%;
+	
+	 position:absolute;
+ left: 0px;
+  bottom: 22px;
+  z-index: 100;
+	}
+	
+  #invertir-color {
+    /* Aquí puedes definir la posición y tamaño del botón */
+    position:absolute;
+ left: -2%;
+  bottom: 78%;
+	
+		z-index: 102;	
+    /* Ajusta el tamaño del botón según tus necesidades */
+    width: 14px;
+    height: 14px;
+    /* Cambia el estilo del botón según tu diseño */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    
+  }
+  
+ .chekbox p2{
+ 
+ 		
+	
+  /* Agrega estilos para el texto del botón */
+    /* Cambia el tamaño de la fuente según tus preferencias */
+    font-size: 105%;
+    /* Cambia la orientación del texto a vertical */
+    writing-mode: vertical-rl;
+    /* Alinea el texto en el centro del botón */
+    text-align: center;
+	 transform: rotate(180deg);
+	
+	 position: relative;
+    left:0%;
+  bottom: -35px;
+    color: #fff;
+	
+  }
+
+h1{ font-size: 32px;
+ color: #fff;
+ width: 257px;
+    height: 13px;
+	
+	 position:absolute;
+ 
+  left:20px;
+}
+h2{ font-size: 14px;
+ color: #fff;
+ width: 217px;
+    height: 13px;
+	 position:absolute;
+ font-family: 'Arial', sans-serif;
+  left:20px;
+   bottom: 530px;
+   line-height: 1.4;
+  
+}
+p{ font-size: 14px;
+ color: #fff;
+ width: 220px;
+    height: 15px;
+	font-family: 'Roboto', sans-serif;
+	 position:absolute;
+	left: 1056px;
+   bottom: 220px;
+}
+
+nav {
+	font-size: 14px;
+ 
+ width: 80px;
+    height: 200px;
+	 font-family: "Bookman Old Style", serif;
+	 position:absolute;
+	left: 15px;
+   bottom: 150px;
+   
+   line-height: 1.7;
+   
+  justify-content: center;
+  align-items: center;
+ 
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  margin:0    15px;
+  color: #fff; /* Color del texto por defecto */
+  text-decoration: none; /* Subrayado por defecto */
+  transition: color 0.3s, text-decoration 0.3s; /* Transiciones suaves al cambiar de color y subrayado */
+  position: relative; /* Posición relativa para animar el subrayado */
+}
+nav a:hover {
+  color: #0000FF; /* Color del texto al pasar el mouse por encima */
+  text-decoration: none; /* Sin subrayado al pasar el mouse por encima */
+ 
+}
+
+
+
+
+
+nav a::before {
+  content: ''; /* Contenido vacío para crear el subrayado */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px; /* Altura del subrayado */
+  background-color: #FF0000; /* Color del subrayado por defecto */
+  transform: scaleX(0); /* Inicialmente, el subrayado estará oculto */
+  transform-origin: left; /* Punto de origen para el transform: scaleX() */
+  transition: transform 0.3s; /* Transición suave para el transform */
+}
+
+nav a:hover::before {
+  transform: scaleX(1); /* El subrayado se expandirá al 100% del ancho al pasar el mouse por encima */
+  animation: wave 1.5s infinite; /* Animación para el movimiento ondeado */
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(0); /* Posición inicial y final, sin desplazamiento */
+  }
+  50% {
+    transform: translateX(12px); /* Desplazamiento hacia la derecha */
+  }
+}
+
+
+p3{
+  
+    font-size: 17px;
+  width: 257px;
+    height: 13px;
+
+    
+	 
+	 position: absolute;
+    left:615px;
+  bottom: 10px;
+    color: #fff;}
+	
+	
+	img {
+  max-width: 50%;
+  max-height: 50%;
+  
+   position:absolute;
+	left: 550px;
+   bottom: 150px;
+  
+
