@@ -25,14 +25,19 @@ function changeColor() {
     iniciarParticulas("#000000"); // Estrellas negras
     // Guardar el estado del checkbox en el almacenamiento local
     localStorage.setItem('colorState', 'true');
+    // NUEVO: Agregamos una llave maestra para controlar textos y logos desde CSS
+    body.classList.add('modo-claro');
   } else {
    // MODO OSCURO (Fondo negro, estrellas blancas)
     body.style.backgroundColor = '#000000'; // Fondo negro puro
-    container.style.backgroundColor = '#0D1117'; // Un azul/gris súper oscuro
+    container.style.backgroundColor = '#000000'; //  oscuro
     
     // AGREGA ESTA LÍNEA:
     iniciarParticulas("#ffffff"); // Estrellas blancas
     // Eliminar el estado del checkbox del almacenamiento local
     localStorage.removeItem('colorState');
+
+    // NUEVO: Quitamos la llave maestra
+    body.classList.remove('modo-claro');
   }
 }
