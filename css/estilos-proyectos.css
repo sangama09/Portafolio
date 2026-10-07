@@ -1,261 +1,304 @@
 @charset "utf-8";
 /* CSS Document */
 
+@charset "utf-8";
+/* CSS Document - Proyectos (Parte 1) */
+
+/* =========================================
+   ESTRUCTURA BASE (BODY Y CONTENEDOR)
+   ========================================= */
 body {
-width:100%;
-		height:100%;
-	background:#262323; /* Gris oscuro */
-	display: flex;
-	justify-content: center;
-	height:100vh;
-	margin:0;
-		
-		}
-	/*contenedor efecto*/	
-	.container{
-		width:97%;
-		height:93%;
-		background-color:#000000;   
-		margin:	auto; /*para que se centre el cuadro*/ 
-		border: 2px solid #fff; /* Borde de 2px de ancho y color blanco (#fff) */  
-		 position: relative;
+    width: 100%;
+    height: 100vh; /* DRY: Eliminamos el height 100% que estaba repetido */
+    background: #000000; /* Fondo negro base */
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.container {
+    width: 97%;
+    height: 93%;
+    background-color: #000000;   
+    margin: auto;  
+    border: 2px solid #fff;  
+    position: relative;
     z-index: 99;
-		 overflow-y: auto;
-		 
-		 
-		}
-		
+    overflow-y: auto;
+}
 
-		
-		
-		/*----------------------------------------------------*/
+#particles-js {
+    height: 93%;
+    width: 92%;
+    position: fixed;
+    z-index: -1;	
+}
 
-	#particles-js{
-	
-		height: 93%;
-		width: 92% ;
-		position: fixed;
-		z-index: -1;	
-	}
-	
-	
-	
-	.chekbox{
-	 width: 2.3%;
+/* =========================================
+   INTERRUPTOR (CONTENEDOR Y BOTÓN)
+   ========================================= */
+.chekbox {
+    width: 2.3%;
     height: 19%;
-	
-	 position:absolute;
- left: 0px;
-  bottom: 22px;
-  z-index: 100;
-	}
-	
-	
-	/* Estilos para el botón */
-  #invertir-color {
-      /* Aquí puedes definir la posición y tamaño del botón */
-    position:absolute;
- left: -2%;
-  bottom: 78%;
-	
-		z-index: 102;	
-    /* Ajusta el tamaño del botón según tus necesidades */
-    width: 14px;
-    height: 14px;
-    /* Cambia el estilo del botón según tu diseño */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
+    position: absolute;
+    left: 0px;
+    bottom: 22px;
+    z-index: 100;
+}
+
+/* =========================================
+   BOTÓN SOL Y LUNA (SIN MARCO Y BLANCO/NEGRO)
+   ========================================= */
+#invertir-color {
+  appearance: none;
+    -webkit-appearance: none;
+    width: 25px;  /* Más pequeño y discreto */
+    height: 25px;
+    background-color: transparent;
+    border: none; /* ¡Adiós al marco blanco! */
     cursor: pointer;
+    position: relative;
+    outline: none; /* Evita recuadros azules al hacer clic */
+    transition: all 0.3s ease;
     
-  }
+    /* Centrado del icono */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: 20%;
+    transform: translateX(-50%);
+    
+}
+
+/* Icono por defecto (Modo Oscuro = Luna Blanca) */
+#invertir-color::before {
+    content: "☾"; /* Símbolo tipográfico de luna */
+    font-size: 20px; 
+    color: #fff; /* Luna pintada de color blanco */
+    transition: transform 0.5s ease; 
+    
+}
+
+/* Cuando se ACTIVA (Modo Claro = Sol Negro) */
+#invertir-color:checked::before {
+    content: "☀"; /* Símbolo tipográfico de sol */
+    color: #000; /* Sol pintado de color negro para que contraste con el fondo claro */
+    transform: rotate(360deg); 
+}
+
   
- .chekbox p2{
- /* Agrega estilos para el texto del botón */
-    /* Cambia el tamaño de la fuente según tus preferencias */
-    font-size: 105%;
-    /* Cambia la orientación del texto a vertical */
-    writing-mode: vertical-rl;
-    /* Alinea el texto en el centro del botón */
-    text-align: center;
-	 transform: rotate(180deg);
-	
-	 position: relative;
-    left:0%;
-  bottom: -30%;
+
+
+/* =========================================
+   TÍTULOS PRINCIPALES (H1 Y H2)
+   ========================================= */
+h1 { 
+    font-size: 32px;
     color: #fff;
-	
-  }
+    width: 400px;
+    /* Eliminamos el height: 13px; para que el texto respire */
+    position: absolute;
+    left: 20px;
+    top: 5%; /* Anclado desde arriba de forma segura */
+}
 
-h1{ font-size: 32px;
- color: #fff;
- width: 400px;
-    height: 13px;
-	
-	 position:absolute;
- 
-  left:20px;
+h2 { 
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    width: 217px;
+    /* Eliminamos el height: 13px; */
+    position: absolute;
+    left: 20px;
+    top: 13%; /* Siempre mantendrá su distancia debajo del h1 */
+    line-height: 1.4;
 }
-h2{ font-size: 14px;
- color: #fff;
- width: 217px;
-    height: 13px;
-	 position:absolute;
- font-family: 'Arial', sans-serif;
-  left:20px;
-   bottom: 85%;
-   line-height: 1.4;
-  
+
+/* =========================================
+   SECCIÓN DE PROYECTOS (ESTILOS ÚNICOS)
+   ========================================= */
+/* Viñeta de título "Proyectos" */
+li { 
+    font-size: 20px;
+    color: #fff;
+    width: 200px;
+    /* Eliminamos el height: 30px; asfixiante */
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    /* FIX: Reemplazado left: 1013px por un ancla derecha segura */
+    right: 50px;
+    top: 8%; /* Anclado arriba para que no choque en pantallas medianas */
 }
-/*todo proyectos el estilo */
+
+/* Contenedor de la lista de proyectos */
 .oracion { 
-width:442px;
-height:80%;
-
-
-
-font-family: "Bookman Old Style", serif;
-color: #fff;
-  font-size: 30px; /* Tamaño de fuente predeterminado para los enlaces */
- 
-	
-	 position:absolute;
-	left: 850px;
-   bottom:5%;
-  
-   
- justify-content: center;
-  align-items: center;
-
-}
-
-
-li{ font-size: 20px;
-
- color: #fff;
- width: 200px;
-    height: 30px;
-	font-family: 'Roboto', sans-serif;
-	 position:absolute;
-	left: 1013px;
-   bottom: 88%;
+    width: 442px;
+    /* Eliminamos el height: 80%; para que el contenido no se corte */
+    font-family: "Bookman Old Style", serif;
+    color: #fff;
+    font-size: 30px; 
+    position: absolute;
+    /* FIX: Reemplazado el peligroso left: 850px por ancla derecha segura */
+    right: 50px;
+    top: 20%; /* Se coloca perfectamente debajo del título 'li' */
+    /* DRY: Eliminamos align-items y justify-content (eran código fantasma sin flexbox) */
 }
 
 
 
-
+/* =========================================
+   ENLACES Y TEXTOS DE LOS PROYECTOS
+   ========================================= */
 .oracion a {
-color: #fff;
-text-decoration: none;
-  display: block; /* Hace que cada enlace se muestre en una línea separada */
+    color: #fff; /* Texto blanco por defecto */
+    text-decoration: none; /* Quitamos el feo subrayado azul clásico de los links HTML */
+    display: block; /* Obliga a que cada proyecto ocupe su propia línea hacia abajo */
 }
 
 .troracion {
-color: #fff;
-  font-size: 12px; /* Tamaño de fuente para las primeras tres palabras */
+    color: #fff; /* Blanco para el texto descriptivo del proyecto */
+    font-size: 12px; /* Letra pequeña para diferenciarla del título principal del proyecto */
 }
 
-.oracion :hover {
-  color: #9b9b9b; /* Color del texto al pasar el mouse por encima */
-  text-decoration: none; /* Sin subrayado al pasar el mouse por encima */
- 
+.oracion a:hover {
+    color: #9b9b9b; /* Se vuelve gris claro al pasar el mouse para confirmar que es clickeable */
+    text-decoration: none; /* Mantenemos sin subrayado incluso al pasar el mouse */
 }
-	
 
-
-
-
-/*--------------------------------*/
-
-
-
-
-
+/* =========================================
+   MENÚ DE NAVEGACIÓN (LISTA VERTICAL CORREGIDA)
+   ========================================= */
 nav {
-	font-size: 14px;
- 
- width: 80px;
-    height: 200px;
-	 font-family: "Bookman Old Style", serif;
-	 position:absolute;
-	left: 15px;
-   bottom: 25%;
-   
-   line-height: 1.7;
-   
-  justify-content: center;
-  align-items: center;
- 
-  justify-content: center;
-  align-items: center;
+    /* ESTO ARREGLA EL PROBLEMA: Empuja el menú muy por debajo de tu nombre */
+    margin-top: 340px; 
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
 }
 
 nav a {
-  margin:0    15px;
-  color: #fff; /* Color del texto por defecto */
-  text-decoration: none; /* Subrayado por defecto */
-  transition: color 0.3s, text-decoration 0.3s; /* Transiciones suaves al cambiar de color y subrayado */
-  position: relative; /* Posición relativa para animar el subrayado */
+    text-decoration: none;
+    color: #fcf9f9; /* Negro para que se vea en el marco blanco */
+    font-family: monospace; 
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    padding: 8px 15px;
+    border-left: 4px solid transparent; 
+    transition: all 0.3s ease;
 }
+
+/* =========================================
+   ANIMACIÓN TECLADO RGB (GAMER)
+   ========================================= */
+@keyframes rgb-gamer {
+    0%   { color: #ff0000; text-shadow: 0 0 10px #ff0000; } /* Rojo */
+    20%  { color: #ffff00; text-shadow: 0 0 10px #ffff00; } /* Amarillo */
+    40%  { color: #00ff00; text-shadow: 0 0 10px #00ff00; } /* Verde */
+    60%  { color: #00ffff; text-shadow: 0 0 10px #00ffff; } /* Celeste */
+    80%  { color: #0000ff; text-shadow: 0 0 10px #0000ff; } /* Azul */
+    100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; } /* Rosa */
+}
+
 nav a:hover {
-  color: #0000FF; /* Color del texto al pasar el mouse por encima */
-  text-decoration: none; /* Sin subrayado al pasar el mouse por encima */
- 
+    animation: rgb-gamer 1.5s linear infinite; /* Activa el arcoíris RGB sin fin */
+    border-left: 4px solid #000; /* Hace aparecer un borde tipo cursor */
+    letter-spacing: 4px; /* Expande la letra */
+    transform: translateX(10px); /* Lo desliza a la derecha */
 }
 
-
-
-
-
-nav a::before {
-  content: ''; /* Contenido vacío para crear el subrayado */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2.5px; /* Altura del subrayado */
-  background-color: #FF0000; /* Color del subrayado por defecto */
-  transform: scaleX(0); /* Inicialmente, el subrayado estará oculto */
-  transform-origin: left; /* Punto de origen para el transform: scaleX() */
-  transition: transform 0.3s; /* Transición suave para el transform */
-}
-
-nav a:hover::before {
-  transform: scaleX(1); /* El subrayado se expandirá al 100% del ancho al pasar el mouse por encima */
-  animation: wave 1.5s infinite; /* Animación para el movimiento ondeado */
-}
-
-@keyframes wave {
-  0%, 100% {
-    transform: translateX(0); /* Posición inicial y final, sin desplazamiento */
-  }
-  50% {
-    transform: translateX(12px); /* Desplazamiento hacia la derecha */
-  }
-}
-
-
-p3{
-  
-    font-size: 90%;
-  width: 257px;
-    height: 13px;
-z-index:100;
+/* =========================================
+   TEXTO INFERIOR (COPYRIGHT)
+   ========================================= */
+.copyright { 
+    /* ¡Ojo! Considera cambiar <p3> por <p class="copyright"> en tu HTML */
     
-	 
-	 position: absolute;
-    left:45%;
-  bottom: 1%;
-    color: #fff;}
-	
-	
-	img {
-  max-width: 50%;
-  max-height: 50%;
-  
-   position:absolute;
-	left: 40%;
-   bottom: 16%;
-  
+    font-size: 17px;
+    color: #fff;
+    /* Eliminado height: 13px; para no asfixiar la letra */
+    
+    position: absolute;
+    bottom: 1%;
+    /* Truco DRY para centrado perfecto sin importar el tamaño del monitor */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100; /* Asegura que el texto esté por encima de las estrellas */
+    top:95%;
+}
+
+/* =========================================
+   LOGO PRINCIPAL CENTRAL
+   ========================================= */
+.container > img {
+    max-width: 50%;
+    max-height: 50%; /* Limita el tamaño del logo para que no desborde */
+    position: absolute;
+    left: 40%;
+    bottom: 16%;
+}
+
+/* =========================================
+   REGLAS AUTOMÁTICAS PARA EL MODO CLARO
+   ========================================= */
+
+/* 1. Convierte todos los textos blancos a negro */
+body.modo-claro h1,
+body.modo-claro h2,
+body.modo-claro p,
+body.modo-claro .texto-interruptor,
+body.modo-claro .copyright,
+body.modo-claro nav a,
+body.modo-claro li,
+body.modo-claro .oracion,
+body.modo-claro .oracion a,
+body.modo-claro .troracion,
+body.modo-claro .contactanos a,
+body.modo-claro .visita li {
+    color: #000000 !important; 
+}
+
+/* 2. Cambia el borde blanco del contenedor a negro */
+body.modo-claro .container {
+    border-color: #000000 !important; 
+}
+
+/* 3. Convierte el logo y los iconos de blanco a negro mágicamente */
+body.modo-claro img {
+    filter: invert(1);
+}
+
+/* =========================================
+   ADAPTACIÓN PARA PANTALLAS PEQUEÑAS (CELULARES)
+   ========================================= */
+@media (max-width: 850px) {
+    /* 1. Reubicamos el título de Proyectos a la izquierda para que no choque con tu nombre */
+    li {
+        font-size: 16px;
+        right: auto; /* FIX: Anula la orden de estar pegado a la derecha */
+        left: 20px; /* Lo alinea a la izquierda de forma segura */
+        top: 22%; /* Lo baja para que no colisione con el h1 y h2 */
+    }
+    
+    /* 2. Movemos la lista de los proyectos también a la izquierda */
+    .oracion {
+        width: 85%; /* Evita que el texto se salga del teléfono */
+        font-size: 20px; /* Letra un poco más chica para lectura en móvil */
+        right: auto; /* Anula el anclaje derecho */
+        left: 20px; /* Alineado a la izquierda */
+        top: 28%; /* Ordenado en cascada justo debajo de la viñeta 'li' */
+    }
+    
+    /* 3. Achicamos el logo central para que no estorbe la lectura de tus proyectos */
+    .container > img {
+        max-width: 25%;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%); /* Lo mantiene centrado en la parte baja */
+    }
+    
+    /* 4. Subimos el menú de navegación para que no estorbe al botón de modo claro */
+    nav { bottom: 40%; }
 }

@@ -1,67 +1,93 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<link rel="stylesheet" href="css/estilos.css"  >
-
+<!-- Declaración de HTML5: Le dice al navegador que use el estándar moderno -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta name="theme-color" content="#000000" >
+    <!-- Configuración de caracteres para que las tildes y la 'ñ' se lean bien -->
+    <meta charset="utf-8" />
+    
+    <!-- Viewport: Clave para que tu diseño responsivo (@media) funcione en celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Pinta la barra superior del navegador en móviles de color negro -->
+    <meta name="theme-color" content="#000000" />
+    
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>Sangama Samurey | Inicio</title>
 
-<link id="icono-negro" rel="icon" href="logo/FAVICON/LOGO letrablan EDIT.ico" type="image/x-icon">
-
-
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="device-width,initial - scale=1.0" >
-<title>Sangama Samurey</title>
+    <!-- Conexión con tu hoja de estilos CSS -->
+    <link rel="stylesheet" href="css/estilos.css" />
+    
+    <!-- Icono (Favicon) que aparece al lado del título en la pestaña -->
+    <link id="icono-negro" rel="icon" href="logo/FAVICON/LOGO letrablan EDIT.ico" type="image/x-icon" />
 </head>
 
 <body>
 
+    <!-- =========================================
+         BOTÓN DE MODO CLARO/OSCURO
+         ========================================= -->
+    <div class="chekbox">
+        <!-- El checkbox que detecta el JS -->
+        <input id="invertir-color" type="checkbox" /> 
+        <!-- Reemplazamos <p2> por un span con clase para que sea HTML válido -->
+        
+    </div>
+    
+    
 
+    <!-- =========================================
+         CONTENEDOR PRINCIPAL
+         ========================================= -->
+    <header class="container">  
+        
+        <!-- Tu nombre (Máxima jerarquía de título) -->
+        <h1>Sangama Samurey</h1>
+        
+        <!-- Tu profesión y estudios -->
+        <h2>Tecnico informatico (egresado) ING. de Sistemas .</h2>
+        
+        <!-- Tu biografía profesional -->
+        <p>
+            Profesional egresado del Instituto Tecnológico Publico Francisco 
+            Vigo Caballero, y actualmente estudiando en la Universidad 
+            Privada del Norte. Comprometido con sus habilidades y 
+            conocimientos en el aporte y crecimiento de la organización, así 
+            como su mejora continua en los puestos de trabajos 
+            relacionados, con la actitud de asumir nuevos retos y conocimientos y así poder crecer 
+            profesionalmente.
+        </p>
 
-<form method="get" action="">
+        <!-- =========================================
+             MENÚ DE NAVEGACIÓN
+             ========================================= -->
+        <nav>
+            <a href="index.html">Inicio</a> 
+            <a href="proyectos.html">Proyectos</a> 
+            <a href="informacion.html">Informacion</a>
+        </nav>
+        
+        <!-- =========================================
+             EFECTOS VISUALES Y LOGO
+             ========================================= -->
+        <!-- Aquí se inyectan las estrellas del JS -->
+        <div id="particles-js"></div>
+        
+        <!-- Tu logo central -->
+        <img src="logo/LOGO NEGRO EDIT.png" alt="Logo de Sangama Samurey">
 
+		
 
-<br />
-<div class="chekbox">
-<input id="invertir-color" type="checkbox"  /> <p2>invertir color</p2></div>
-<p3> ©2023 Sangama | autor.</p3>
+    </header>
+	<!-- Reemplazamos <p3> por un párrafo con clase -->
+    <p class="copyright">©2023 Sangama | autor.</p>
 
-
-
-</form>
-<header class="container">  
-<h1>Sangama Samurey</h1>
-<h2>Tecnico informatico (egresado) ING.de Sistemas (en curso).</h2>
-<p>Profesional egresado del Instituto Tecnológico Publico Francisco 
-Vigo Caballero, y actualmente estudiando en la Universidad 
-Privada del Norte. Comprometido con sus habilidades y 
-conocimientos en el aporte y crecimiento de la organización, así 
-como su mejora continua en los puestos de trabajos 
-relacionados, con la actitud de asumir nuevos retos y conocimientos y así poder crecer 
-profesionalmente.
-</p>
-
-	<nav>
-				<a href="index.html">Inicio  </a> 
-				<a href="proyectos.html">Proyectos</a> 
-				<a href="informacion.html">Informacion</a>
-	
-			
-			</nav>
- <div id="particles-js"></div>
- 
- 
- <img src="logo/LOGO NEGRO EDIT.png" alt="Imagen centrada">
-
-</header>
-
-<script src="js/particles.min.js"></script>
-<script src="js/animacion-part.js"></script>
-<script src="js/invert-color.js"></script>
-
-
+    <!-- =========================================
+         SCRIPTS (JAVASCRIPT)
+         ========================================= -->
+    <!-- Se colocan al final del body para que la página cargue más rápido visualmente -->
+    <script src="js/particles.min.js"></script>
+    <script src="js/animacion-part.js"></script>
+    <script src="js/invert-color.js"></script>
 
 </body>
-
 </html>

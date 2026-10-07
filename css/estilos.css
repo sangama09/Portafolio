@@ -1,204 +1,289 @@
 @charset "utf-8";
-/* CSS Document */
+/* CSS Document - Inicio */
 
+/* =========================================
+   ESTRUCTURA BASE (BODY Y CONTENEDOR)
+   ========================================= */
 body {
-width:100%;
-		height:100%;
+    width: 100%;
+    height: 100vh; /* Ocupa exactamente el 100% de la altura visible del monitor */
+    background: #000000; /* Fondo negro base del lienzo general */
+    display: flex; /* Activa la tecnología Flexbox para centrar fácilmente la caja principal */
+    justify-content: center; /* Centra la caja ".container" horizontalmente */
+    margin: 0; /* Elimina los márgenes blancos que los navegadores ponen por defecto */
+}
 
-	background:#262323; /* Gris oscuro */
-	display: flex;
-	justify-content: center;
-	height:100vh;
-	margin:0;
-		
-		}
-		
-	.container{
-		width:97%;
-		height:93%;
-		background-color:#000000;   
-		margin:	auto; /*para que se centre el cuadro*/ 
-		border: 2px solid #fff; /* Borde de 2px de ancho y color blanco (#fff) */  
-		 position: relative;
-    z-index: 99;
-		 overflow-y: auto;
-		}
+.container {
+    width: 97%;
+    height: 93%; /* Al no ser 100%, deja un pequeño margen negro alrededor, creando un marco */
+    background-color: #000000; /* Fondo negro exclusivo para la caja de contenido */
+    margin: auto; /* Trabaja con Flexbox para centrar la caja perfectamente en el medio */
+    border: 2px solid #fff; /* Dibuja la línea blanca de 2px de grosor en los bordes */
+    position: relative; /* Convierte esta caja en el "Padre". Todo lo que pongas dentro no se saldrá de aquí */
+    z-index: 99; /* Trae el texto hacia adelante para que no lo tapen las estrellas */
+    overflow-y: auto; /* Si escribes mucho texto, crea una barra de desplazamiento automática */
+}
 
-	#particles-js{
-	
-		height: 93%;
-		width: 92% ;
-		position: fixed;
-		z-index: -1;	
-	}
-	
-	
-	
-	/* Estilos para el botón */
-	
-	.chekbox{
-	 width: 2.3%;
+#particles-js {
+    height: 93%;
+    width: 92%;
+    position: fixed; /* Clava el lienzo de estrellas en la pantalla. Si haces scroll, no se mueven */
+    z-index: -1; /* Manda la animación a la capa más profunda, detrás del fondo */
+}
+
+/* =========================================
+   INTERRUPTOR (CONTENEDOR Y BOTÓN)
+   ========================================= */
+.chekbox {
+    width: 2.3%; /* Tamaño adaptable según la pantalla */
     height: 19%;
-	
-	 position:absolute;
- left: 0px;
-  bottom: 22px;
-  z-index: 100;
-	}
-	
-  #invertir-color {
-    /* Aquí puedes definir la posición y tamaño del botón */
-    position:absolute;
- left: -2%;
-  bottom: 78%;
-	
-		z-index: 102;	
-    /* Ajusta el tamaño del botón según tus necesidades */
-    width: 14px;
-    height: 14px;
-    /* Cambia el estilo del botón según tu diseño */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    position: absolute; /* Permite moverlo libremente por la pantalla */
+    left: 0px; /* Pegado al borde izquierdo */
+    bottom: 22px; /* Separado ligeramente del fondo */
+    z-index: 100; /* Asegura que la caja del botón sea clickeable por encima del fondo */
     
-  }
-  
- .chekbox p2{
- 
- 		
-	
-  /* Agrega estilos para el texto del botón */
-    /* Cambia el tamaño de la fuente según tus preferencias */
-    font-size: 105%;
-    /* Cambia la orientación del texto a vertical */
-    writing-mode: vertical-rl;
-    /* Alinea el texto en el centro del botón */
-    text-align: center;
-	 transform: rotate(180deg);
-	
-	 position: relative;
-    left:0%;
-  bottom: -30%;
+}
+
+/* =========================================
+   BOTÓN SOL Y LUNA (SIN MARCO Y BLANCO/NEGRO)
+   ========================================= */
+#invertir-color {
+  appearance: none;
+    -webkit-appearance: none;
+    width: 25px;  /* Más pequeño y discreto */
+    height: 25px;
+    background-color: transparent;
+    border: none; /* ¡Adiós al marco blanco! */
+    cursor: pointer;
+    position: relative;
+    outline: none; /* Evita recuadros azules al hacer clic */
+    transition: all 0.3s ease;
+    
+    /* Centrado del icono */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: 20%;
+    transform: translateX(-50%);
+    
+}
+
+/* Icono por defecto (Modo Oscuro = Luna Blanca) */
+#invertir-color::before {
+    content: "☾"; /* Símbolo tipográfico de luna */
+    font-size: 20px; 
+    color: #fff; /* Luna pintada de color blanco */
+    transition: transform 0.5s ease; 
+    
+}
+
+/* Cuando se ACTIVA (Modo Claro = Sol Negro) */
+#invertir-color:checked::before {
+    content: "☀"; /* Símbolo tipográfico de sol */
+    color: #000; /* Sol pintado de color negro para que contraste con el fondo claro */
+    transform: rotate(360deg); 
+}
+
+
+
+/* =========================================
+   TEXTOS PRINCIPALES (TÍTULO Y SUBTÍTULO)
+   ========================================= */
+h1 { 
+    font-size: 32px; /* Tamaño grande y jerárquico para tu nombre */
     color: #fff;
-	
-  }
-
-h1{ font-size: 32px;
- color: #fff;
- width: 400px;
-    height: 13px;
-	
-	 position:absolute;
- 
-  left:20px;
-}
-h2{ font-size: 14px;
- color: #fff;
- width: 217px;
-    height: 13px;
-	 position:absolute;
- font-family: 'Arial', sans-serif;
-  left:20px;
-   bottom: 85%;
-   line-height: 1.4;
-  
-}
-p{ font-size: 14px;
- color: #fff;
- width: 220px;
-    height: 15px;
-	font-family: 'Roboto', sans-serif;
-	 position:absolute;
-	left: 1056px;
-   bottom: 220px;
+    width: 400px; /* Limita el ancho para que el nombre no se expanda a toda la pantalla */
+    position: absolute;
+    left: 20px; /* Separación del borde izquierdo */
+    top: 5%; /* Anclado desde arriba. Evita colisiones cuando se encoge la pantalla */
 }
 
+h2 { 
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    width: 217px;
+    position: absolute;
+    left: 20px; /* Misma separación que el h1 para que estén perfectamente alineados */
+    top: 13%; /* Se coloca justo debajo del h1 (5% + espacio) */
+    line-height: 1.4; /* Da un ligero respiro entre las líneas si el texto baja a una segunda fila */
+}
+/* =========================================
+   PÁRRAFO DE PRESENTACIÓN (BIOGRAFÍA)
+   ========================================= */
+p { 
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    width: 250px; /* Ligeramente más ancho para mejor lectura */
+    /* DRY: Eliminamos el height: 15px; porque ahogaba a un texto de varias líneas */
+    
+    position: absolute;
+    /* FIX: Reemplazamos el peligroso left: 1056px; que rompía monitores pequeños */
+    right: 50px; /* Lo anclamos de forma segura al lado derecho de la pantalla */
+    top: 5%; /* Lo alineamos a la misma altura que tu título h1 */
+}
+
+/* =========================================
+   MENÚ DE NAVEGACIÓN (LISTA VERTICAL CORREGIDA)
+   ========================================= */
 nav {
-	font-size: 14px;
- 
- width: 80px;
-    height: 200px;
-	 font-family: "Bookman Old Style", serif;
-	 position:absolute;
-	left: 15px;
-   bottom: 25%;
-   
-   line-height: 1.7;
-   
-  justify-content: center;
-  align-items: center;
- 
-  justify-content: center;
-  align-items: center;
+    /* ESTO ARREGLA EL PROBLEMA: Empuja el menú muy por debajo de tu nombre */
+    margin-top: 340px; 
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
 }
 
 nav a {
-  margin:0    15px;
-  color: #fff; /* Color del texto por defecto */
-  text-decoration: none; /* Subrayado por defecto */
-  transition: color 0.3s, text-decoration 0.3s; /* Transiciones suaves al cambiar de color y subrayado */
-  position: relative; /* Posición relativa para animar el subrayado */
+    text-decoration: none;
+    color: #fcf9f9; /* Negro para que se vea en el marco blanco */
+    font-family: monospace; 
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    padding: 8px 15px;
+    border-left: 4px solid transparent; 
+    transition: all 0.3s ease;
 }
+
+/* =========================================
+   ANIMACIÓN TECLADO RGB (GAMER)
+   ========================================= */
+@keyframes rgb-gamer {
+    0%   { color: #ff0000; text-shadow: 0 0 10px #ff0000; } /* Rojo */
+    20%  { color: #ffff00; text-shadow: 0 0 10px #ffff00; } /* Amarillo */
+    40%  { color: #00ff00; text-shadow: 0 0 10px #00ff00; } /* Verde */
+    60%  { color: #00ffff; text-shadow: 0 0 10px #00ffff; } /* Celeste */
+    80%  { color: #0000ff; text-shadow: 0 0 10px #0000ff; } /* Azul */
+    100% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; } /* Rosa */
+}
+
 nav a:hover {
-  color: #0000FF; /* Color del texto al pasar el mouse por encima */
-  text-decoration: none; /* Sin subrayado al pasar el mouse por encima */
- 
+    animation: rgb-gamer 1.5s linear infinite; /* Activa el arcoíris RGB sin fin */
+    border-left: 4px solid #000; /* Hace aparecer un borde tipo cursor */
+    letter-spacing: 4px; /* Expande la letra */
+    transform: translateX(10px); /* Lo desliza a la derecha */
 }
 
-
-
-
-
+/* =========================================
+   ANIMACIÓN: LÍNEA ROJA SUBRAYADA
+   ========================================= */
 nav a::before {
-  content: ''; /* Contenido vacío para crear el subrayado */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2.5px; /* Altura del subrayado */
-  background-color: #FF0000; /* Color del subrayado por defecto */
-  transform: scaleX(0); /* Inicialmente, el subrayado estará oculto */
-  transform-origin: left; /* Punto de origen para el transform: scaleX() */
-  transition: transform 0.3s; /* Transición suave para el transform */
+    content: ''; /* Elemento virtual creado solo con CSS */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.5px; 
+    background-color: #FF0000;
+    transform: scaleX(0); /* Nace con tamaño 0 (invisible) */
+    transform-origin: left; /* Crece de izquierda a derecha */
+    transition: transform 0.3s; /* Tarda 0.3s en expandirse completamente */
 }
 
 nav a:hover::before {
-  transform: scaleX(1); /* El subrayado se expandirá al 100% del ancho al pasar el mouse por encima */
-  animation: wave 1.5s infinite; /* Animación para el movimiento ondeado */
+    transform: scaleX(1); /* Crece al 100% del tamaño del texto al pasar el mouse */
+    animation: wave 1.5s infinite; /* Llama al keyframe de abajo para el efecto "ola" */
 }
 
 @keyframes wave {
-  0%, 100% {
-    transform: translateX(0); /* Posición inicial y final, sin desplazamiento */
-  }
-  50% {
-    transform: translateX(12px); /* Desplazamiento hacia la derecha */
-  }
+    0%, 100% {
+        transform: translateX(0); /* Posición base de la línea */
+    }
+    50% {
+        transform: translateX(12px); /* Se desplaza 12px a la derecha y vuelve fluidamente */
+    }
 }
 
-
-p3{
-  
-    font-size: 17px;
-  width: 257px;
-    height: 13px;
-
+/* =========================================
+   TEXTO INFERIOR (COPYRIGHT)
+   ========================================= */
+.copyright { 
     
-	 
-	 position: absolute;
-    left:615px;
-  bottom: 10px;
-    color: #fff;}
-	
-	
-	img {
-  max-width: 50%;
-  max-height: 50%;
-  
-   position:absolute;
-	left: 40%;
-   bottom: 16%;
-  
+ /* ¡Ojo! Considera cambiar <p3> por <p class="copyright"> en tu HTML */
+    
+    font-size: 17px;
+    color: #fff;
+    /* Eliminado height: 13px; para no asfixiar la letra */
+    
+    position: absolute;
+    bottom: 1%;
+    /* Truco DRY para centrado perfecto sin importar el tamaño del monitor */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100; /* Asegura que el texto esté por encima de las estrellas */
+    top:95%;
+   
+}
 
+/* =========================================
+   LOGO PRINCIPAL CENTRAL
+   ========================================= */
+/* FIX: Cambiamos "img" a secas por ".container > img" para no afectar a futuros iconos */
+.container > img {
+    max-width: 50%;
+    max-height: 50%;
+    position: absolute;
+    left: 40%;
+    bottom: 16%;
+}
+/* =========================================
+   REGLAS AUTOMÁTICAS PARA EL MODO CLARO
+   ========================================= */
+
+/* 1. Convierte todos los textos blancos a negro */
+body.modo-claro h1,
+body.modo-claro h2,
+body.modo-claro p,
+body.modo-claro .chekbox .texto-interruptor,
+body.modo-claro .copyright,
+body.modo-claro nav a,
+body.modo-claro li,
+body.modo-claro .oracion,
+body.modo-claro .oracion a,
+body.modo-claro .troracion,
+body.modo-claro .contactanos a,
+body.modo-claro .visita li {
+    color: #000000 !important; 
+}
+
+/* 2. Cambia el borde blanco del contenedor a negro */
+body.modo-claro .container {
+    border-color: #000000 !important; 
+}
+
+/* 3. Convierte el logo y los iconos de blanco a negro mágicamente */
+body.modo-claro img {
+    filter: invert(1);
+}
+
+/* =========================================
+   ADAPTACIÓN PARA PANTALLAS PEQUEÑAS (ESTILOS.CSS)
+   ========================================= */
+@media (max-width: 850px) {
+    h1 { font-size: 24px; top: 3%; width: 90%; }
+    h2 { font-size: 13px; top: 9%; width: 90%; }
+    
+    /* Empujamos el texto de biografía a una zona segura debajo del h2 */
+    p { 
+        width: 85%; 
+        left: 20px; 
+        right: auto; 
+        top: 20%; /* Anclado desde arriba, lejos del título */
+        font-size: 13px;
+    }
+    
+    /* Achicamos el logo y lo bajamos para dar espacio al texto */
+    .container > img {
+        max-width: 25%;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+    
+    nav { bottom: 40%; }
+}

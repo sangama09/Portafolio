@@ -1,83 +1,102 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<link rel="stylesheet" href="css/estilos-informacion.css"  >
-
+<!-- Declaración de HTML5: Estándar moderno y limpio -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <!-- Configuración de caracteres para leer correctamente tildes y eñes -->
+    <meta charset="utf-8" />
+    
+    <!-- Viewport corregido: Vital para que el @media funcione en celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    
+    <title>Sangama Samurey | Información</title>
 
-<link id="icono-negro" rel="icon" href="logo/FAVICON/LOGO letrablan EDIT.ico" type="image/x-icon">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="device-width,initial - scale=1.0" >
-<title>Sangama Samurey</title>
+    <!-- El CSS y los iconos siempre deben ir dentro del <head> -->
+    <link rel="stylesheet" href="css/estilos-informacion.css" />
+    <link id="icono-negro" rel="icon" href="logo/FAVICON/LOGO letrablan EDIT.ico" type="image/x-icon" />
 </head>
 
 <body>
 
+    <!-- =========================================
+         BOTÓN DE MODO CLARO/OSCURO
+         ========================================= -->
+    <!-- Eliminamos la etiqueta <form> que era incorrecta para este uso -->
+    <div class="chekbox">
+        <input id="invertir-color" type="checkbox" /> 
+        
+        
+    </div>
 
+    <!-- =========================================
+         CONTENEDOR PRINCIPAL (MARCO BLANCO)
+         ========================================= -->
+    <header class="container">  
+        
+        <h1>Sangama Samurey</h1>
+        <h2>Tecnico informatico (egresado) ING. de Sistemas (en curso).</h2>
 
-<form method="get" action="">
-
-
-<br />
-<div class="chekbox">
-<input id="invertir-color" type="checkbox"  /> <p2>invertir color</p2></div>
-<p3> ©2023 Sangama | autor.</p3>
-
-
-
-</form>
-<header class="container">  
-<h1>Sangama Samurey</h1>
-<h2>Tecnico informatico (egresado) ING.de Sistemas (en curso).</h2>
-
-<!-- Contenedor del chatbot -->
-
-
-
-<div class="contactanos">
-  
-				 <li>CONTACTAME:</> <br />
-				
-				
-			<a href="mailto: sangama1996s@gmail.com"class="correo">
-            <img src="logo/correo.png" alt="Imagen centrada"> sangama1996s@gmail.com</a> <br />
+        <!-- =========================================
+             SECCIÓN DE CONTACTO (CORREO Y WHATSAPP)
+             ========================================= -->
+        <div class="contactanos">
+            <!-- Corregido el cierre de etiqueta de </> a </li> -->
+            <li>CONTACTAME:</li> <br />
+                
+            <!-- Enlace directo a tu correo -->
+            <a href="mailto:sangama1996s@gmail.com" class="correo">
+                <img src="logo/correo.png" alt="Icono de correo"> sangama1996s@gmail.com
+            </a> <br />
             
-            
-			  <a href="https://wa.me/+51927676575"target="-blank"class="wsp">
-              <img src="logo/whatsapp.png" alt="Imagen centrada" > </a>
-				
-			
-</div>
+            <!-- Enlace directo a tu WhatsApp abriendo en pestaña nueva (_blank) -->
+            <a href="https://wa.me/+51927676575" target="_blank" class="wsp">
+                <img src="logo/whatsapp.png" alt="Icono de WhatsApp"> 
+            </a>
+        </div>
 
-<div class="visita">
-<li>VISITA TODAS MIS REDES SOCIALES:</> <br />
-				
-				 <a href="https://www.instagram.com/samurey_sangama.s/"target="-blank"><img src="logo/instagram.png" alt="Imagen centrada" id="insta"> </a>
-                  <a href="https://web.facebook.com/Sam.Sangama.S"target="-blank"><img src="logo/fscebook.png" alt="Imagen centrada" id="fb"> </a>
-                  <a href="https://www.linkedin.com/in/samurey-sangama/"target="-blank"><img src="logo/linkedin.png" alt="Imagen centrada" id="linkdin"> </a>
-			   </div>
+        <!-- =========================================
+             SECCIÓN DE REDES SOCIALES
+             ========================================= -->
+        <div class="visita">
+            <!-- Corregido el cierre de etiqueta de </> a </li> -->
+            <li>VISITA TODAS MIS REDES SOCIALES:</li> <br />
+                
+            <!-- Atributo target="_blank" corregido con guion bajo en todas las redes -->
+            <a href="https://www.instagram.com/samurey_sangama.s/" target="_blank">
+                <img src="logo/instagram.png" alt="Instagram" id="insta"> 
+            </a>
+            <a href="https://web.facebook.com/Sam.Sangama.S" target="_blank">
+                <img src="logo/fscebook.png" alt="Facebook" id="fb"> 
+            </a>
+            <a href="https://www.linkedin.com/in/samurey-sangama/" target="_blank">
+                <img src="logo/linkedin.png" alt="LinkedIn" id="linkdin"> 
+            </a>
+        </div>
 
+        <!-- =========================================
+             MENÚ DE NAVEGACIÓN
+             ========================================= -->
+        <nav>
+            <a href="index.html">Inicio</a> 
+            <a href="proyectos.html">Proyectos</a> 
+            <a href="informacion.html">Informacion</a>
+        </nav>
+        
+        <!-- Partículas JS y Logo Central -->
+        <div id="particles-js"></div>
+        <img src="logo/LOGO NEGRO EDIT.png" alt="Logo de Sangama Samurey">
 
-	
-				
-	<nav>
-				<a href="index.html">Inicio  </a> 
-				<a href="proyectos.html">Proyectos</a> 
-				<a href="informacion.html">Informacion</a>
-	
-			</nav>
- <div id="particles-js"></div>
- 
- 
- <img src="logo/LOGO NEGRO EDIT.png" alt="Imagen centrada">
+    </header> <!-- FIN DEL MARCO BLANCO -->
 
-</header>
+    <!-- =========================================
+         TEXTO INFERIOR (COPYRIGHT)
+         ========================================= -->
+    <!-- Colocado FUERA del header para que el position absolute/fixed funcione perfecto -->
+    <p class="copyright">©2023 Sangama | autor.</p>
 
-<script src="js/particles.min.js"></script>
-<script src="js/animacion-part.js"></script>
-<script src="js/invert-color.js"></script>
-
-
-</body>
-
-</html>
+    <!-- =========================================
+         SCRIPTS (JAVASCRIPT)
+         ========================================= -->
+    <script src="js/particles.min.js"></script>
+    <script src="js/animacion-part.js"></script>
+    <script src="js/invert-color.js"></script>

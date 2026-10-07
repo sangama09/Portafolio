@@ -45,7 +45,7 @@ particlesJS(
         }
       },
       "size": {
-        "value": 0.5, // Tamaño de las partículas
+        "value": 0.6, // Tamaño de las partículas
         "random": false,
         "anim": {
           "enable": false,
