@@ -397,8 +397,35 @@ body.modo-claro img {
     color: #00ffcc !important; 
 }
 
-/* =========================================================
-   5. MODO CLARO (FONDO BLANCO - AL ACTIVAR EL BOTÓN)
+/* =========================================
+   TEXTOS DENTRO DE LA LISTA DESPLEGABLE
+   ========================================= */
+
+/* 1. Por defecto (Modo Oscuro): Los nombres de los proyectos DENTRO de la lista van en BLANCO */
+.proyectos-lista a,
+.proyectos-lista span,
+.proyectos-lista p {
+    color: #ffffff !important;
+}
+
+/* Efecto al pasar el mouse en modo oscuro */
+.proyectos-lista a:hover {
+    color: #00ffcc !important;
+}
+
+/* 2. Modo Claro (Fondo Blanco): Los nombres de los proyectos DENTRO de la lista cambian a NEGRO */
+body.modo-claro .proyectos-lista a,
+body.modo-claro .proyectos-lista span,
+body.modo-claro .proyectos-lista p {
+    color: #000000 !important;
+}
+
+/* Efecto al pasar el mouse en modo claro */
+body.modo-claro .proyectos-lista a:hover {
+    color: #0055ff !important;
+}
+
+/* =========================================================   5. MODO CLARO (FONDO BLANCO - AL ACTIVAR EL BOTÓN)
    ========================================================= */
 /* Letra y la flechita (▶) en NEGRO */
 body.modo-claro .categoria summary {
