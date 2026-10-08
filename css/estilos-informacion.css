@@ -136,7 +136,7 @@ h2 {
     position: absolute;
     /* Cambiamos el peligroso left: 1090px; por una ancla a la derecha */
     right: 20px; /* Se pegará al borde derecho sin importar el tamaño del monitor */
-    bottom: 37%; /* Posicionado verticalmente */
+    bottom: 5%; /* Posicionado verticalmente */
     
     border-radius: 5px; /* Suaviza ligeramente las esquinas de la caja invisible */
     padding: 10px; /* Crea un margen interno para que el contenido no choque con los bordes de la caja */
@@ -471,4 +471,146 @@ body.modo-claro .wsp img {
         font-size: 13px !important;
         padding: 5px !important;
     }
+/* Ajuste de los contactos en celular para que no se encimen */
+    .contactanos {
+        top: auto !important;
+        bottom: 115px !important; /* Se queda flotando justo arriba del menú inferior */
+        right: 135px;
+        transform: scale(0.85); /* Un poco más compacto para celulares */
+        transform-origin: right bottom;
+    }
+
+}
+
+/* =========================================
+   PANEL DERECHO DE INFORMACIÓN Y ACORDEONES
+   ========================================= */
+.panel-informacion {
+    position: absolute;
+    right: 50px;
+    top: 22%;
+    width: 280px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================================
+   BOTÓN DE DESCARGA DE CV ESTILIZADO
+   ========================================= */
+.btn-cv {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff !important;
+    text-align: center;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn-cv:hover {
+    background-color: #ffffff;
+    color: #000000 !important;
+    box-shadow: 0 0 10px #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Adaptación del botón para el Modo Claro */
+body.modo-claro .btn-cv {
+    border-color: #000000;
+    color: #000000 !important;
+}
+
+body.modo-claro .btn-cv:hover {
+    background-color: #000000;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px #000000;
+}
+
+/* =========================================
+   REGLA UNIVERSAL PARA TEXTOS DESPLEGABLES
+   ========================================= */
+
+/* 1. Por defecto (Modo Oscuro): Todo texto dentro de la lista va en BLANCO */
+.proyectos-lista,
+.proyectos-lista p,
+.proyectos-lista span,
+.proyectos-lista a {
+    color: #ffffff !important;
+}
+
+/* 2. Modo Claro (Fondo Blanco): TODO cambia automáticamente a NEGRO */
+body.modo-claro .proyectos-lista,
+body.modo-claro .proyectos-lista p,
+body.modo-claro .proyectos-lista span,
+body.modo-claro .proyectos-lista a {
+    color: #000000 !important;
+}
+
+/* =========================================
+   COLOR PARA EL TÍTULO PRINCIPAL (SUMMARY)
+   ========================================= */
+
+/* Por defecto (Modo Oscuro): Título principal en BLANCO */
+.categoria summary .proyecto-nombre,
+.categoria summary span {
+    color: #ffffff !important;
+}
+
+/* Modo Claro (Fondo Blanco): Título principal cambia a NEGRO */
+body.modo-claro .categoria summary .proyecto-nombre,
+body.modo-claro .categoria summary span {
+    color: #000000 !important;
+}
+
+/* =========================================
+   COLOR PARA LA FLECHITA DEL ACORDEÓN
+   ========================================= */
+
+/* Por defecto (Modo Oscuro): Flechita blanca */
+.categoria summary {
+    color: #ffffff !important;
+}
+
+/* Modo Claro (Fondo Blanco): Flechita cambia a negra */
+body.modo-claro .categoria summary {
+    color: #000000 !important;
+}
+
+/* =========================================
+   VENTANA FLOTANTE SUPERPUESTA CON SCROLL
+   ========================================= */
+.categoria {
+    position: relative; /* Ancla para la ventana flotante */
+}
+
+.proyectos-lista {
+    position: absolute; /* Se superpone sin estirar la página principal */
+    top: 100%; /* Sale justo debajo del botón desplegable */
+    left: 0;
+    width: 100%; /* Coincide con el ancho del panel */
+    max-height: 180px; /* Altura máxima antes de activar el scroll */
+    overflow-y: auto; /* Activa el scroll interno si hay más contenido */
+    background-color: #000000; /* Fondo negro por defecto en modo oscuro */
+    border: 1px solid #ffffff; /* Marco elegante para la ventana flotante */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 100; /* Se pone por encima de todo */
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Modo Claro: La ventana flotante cambia a fondo blanco con borde negro */
+body.modo-claro .proyectos-lista {
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
