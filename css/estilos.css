@@ -6,29 +6,41 @@
    ========================================= */
 body {
     width: 100%;
-    height: 100vh; /* Ocupa exactamente el 100% de la altura visible del monitor */
+    min-height: 100vh; /* Ocupa exactamente el 100% de la altura visible del monitor */
     background: #000000; /* Fondo negro base del lienzo general */
     display: flex; /* Activa la tecnología Flexbox para centrar fácilmente la caja principal */
     justify-content: center; /* Centra la caja ".container" horizontalmente */
+
+    /* CAMBIO 2: Centra tu marco verticalmente para que se vea elegante */
+    align-items: center;
+
     margin: 0; /* Elimina los márgenes blancos que los navegadores ponen por defecto */
-}
+
+    /* CAMBIO 3: Convierte al body en el ancla oficial de toda la página */
+    position: relative;
+    }
 
 .container {
-    width: 97%;
-    height: 93%; /* Al no ser 100%, deja un pequeño margen negro alrededor, creando un marco */
+    width: 95.9%;
+    min-height: 92vh; /* Al no ser 100%, deja un pequeño margen negro alrededor, creando un marco */
     background-color: #000000; /* Fondo negro exclusivo para la caja de contenido */
     margin: auto; /* Trabaja con Flexbox para centrar la caja perfectamente en el medio */
     border: 2px solid #fff; /* Dibuja la línea blanca de 2px de grosor en los bordes */
     position: relative; /* Convierte esta caja en el "Padre". Todo lo que pongas dentro no se saldrá de aquí */
     z-index: 99; /* Trae el texto hacia adelante para que no lo tapen las estrellas */
-    overflow-y: auto; /* Si escribes mucho texto, crea una barra de desplazamiento automática */
-}
+   /* overflow-y: auto; /* Si escribes mucho texto, crea una barra de desplazamiento automática */
+    }
 
 #particles-js {
-    height: 93%;
-    width: 92%;
-    position: fixed; /* Clava el lienzo de estrellas en la pantalla. Si haces scroll, no se mueven */
-    z-index: -1; /* Manda la animación a la capa más profunda, detrás del fondo */
+position: absolute !important; /* Se ancla a tu .container */
+    top: 0 !important;
+    left: 0 !important;
+    
+    /* Le decimos que copie exactamente el ancho y alto de su padre (el marco blanco) */
+    width: 100% !important; 
+    height: 100% !important; 
+    
+    z-index: -1 !important; /* Las manda al fondo del marco, detrás de tus letras */
 }
 
 /* =========================================
@@ -204,19 +216,22 @@ nav a:hover::before {
    ========================================= */
 .copyright { 
     
- /* ¡Ojo! Considera cambiar <p3> por <p class="copyright"> en tu HTML */
-    
-    font-size: 17px;
+ font-size: 15px; /* Le bajé a 15px para que se vea más elegante en celular, pruébalo */
     color: #fff;
-    /* Eliminado height: 13px; para no asfixiar la letra */
     
-    position: absolute;
-    bottom: 1%;
-    /* Truco DRY para centrado perfecto sin importar el tamaño del monitor */
+    position: absolute !important;;
+    bottom: -10px !important; /* Lo despegamos un poquito del piso para que respire */
+    top: auto !important; /* <--- ESTO ES VITAL: Destruye cualquier "top" que lo tenga atrapado arriba */
+    
+    /* Centrado perfecto matemático */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100; /* Asegura que el texto esté por encima de las estrellas */
-    top:95%;
+    
+    /* MAGIA PARA EL CELULAR */
+    width: 90%; /* Si la pantalla es delgada, el texto ocupa el 90% y hace salto de línea automático */
+    text-align: center; /* Mantiene el texto alineado al medio */
+    
+    z-index: 100;
    
 }
 
@@ -225,11 +240,14 @@ nav a:hover::before {
    ========================================= */
 /* FIX: Cambiamos "img" a secas por ".container > img" para no afectar a futuros iconos */
 .container > img {
-    max-width: 50%;
-    max-height: 50%;
-    position: absolute;
-    left: 40%;
-    bottom: 16%;
+       position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* Esto logra el centro perfecto */
+    width: 360px; /* Tamaño fijo estable */
+    z-index: 0;
+    pointer-events: none; /* Para que no estorbe los clics */
+    opacity: 1;
 }
 /* =========================================
    REGLAS AUTOMÁTICAS PARA EL MODO CLARO
@@ -279,11 +297,46 @@ body.modo-claro img {
     
     /* Achicamos el logo y lo bajamos para dar espacio al texto */
     .container > img {
-        max-width: 25%;
-        bottom: 10%;
-        left: 50%;
-        transform: translateX(-50%); 
+               position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* Esto logra el centro perfecto */
+    width: 360px; /* Tamaño fijo estable */
+    z-index: 0;
+    pointer-events: none; /* Para que no estorbe los clics */
+    opacity: 1;
     }
     
-    nav { bottom: 40%; }
+    /* Manda tu menú a la base y lo distribuye en una sola línea horizontal */
+    nav {
+        position: absolute !important;
+        bottom: 25px !important;
+        left: -20px !important;
+        width: 100% !important;
+        padding: 0 8% !important; 
+        box-sizing: border-box !important;
+
+        /* LA CORRECCIÓN: Obligamos a que sea de izquierda a derecha sin saltos de línea */
+        display: flex !important; 
+        flex-direction: row !important; /* Fuerza la línea horizontal */
+        flex-wrap: nowrap !important;   /* Evita que se caigan hacia abajo */
+        justify-content: space-between !important; 
+        align-items: center !important;
+        z-index: 50;
+    }
+    
+    /* Evitamos que los enlaces actúen como bloques gigantes */
+    nav a {
+        display: inline-block !important;
+        width: auto !important; /* Solo ocupan el espacio de su texto */
+        font-size: 13px !important;
+        padding: 5px !important;
+    }
+
+      /* como amrca de agua */
+    body .container > img {
+        
+        opacity: 0.25 !important; 
+    }
+    
 }

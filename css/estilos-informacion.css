@@ -3,29 +3,41 @@
 
 body {
   width: 100%;
-  height: 100vh; /* Ocupa el 100% del alto visible de la ventana del navegador (Viewport Height). */
+  min-height: 100vh; /* Ocupa el 100% del alto visible de la ventana del navegador (Viewport Height). */
   background: #000000; /* Fondo negro base de la página. */
   display: flex; /* Activa la tecnología Flexbox para estructurar y centrar elementos fácilmente. */
   justify-content: center; /* Centra horizontalmente la caja ".container" en medio de la pantalla. */
-  margin: 0; /* Elimina los bordes en blanco que Chrome y otros navegadores ponen por defecto. */
+  /* CAMBIO 2: Centra tu marco verticalmente para que se vea elegante */
+    align-items: center;
+
+    margin: 0; /* Elimina los márgenes blancos que los navegadores ponen por defecto */
+
+    /* CAMBIO 3: Convierte al body en el ancla oficial de toda la página */
+    position: relative;
+    
 }
 
 .container {
-  width: 97%;
-  height: 93%; /* Al ser menor al 100%, permite que se vea el fondo alrededor, creando tu diseño enmarcado. */
+  width: 95.9%;
+  min-height: 92vh; /* Al ser menor al 100%, permite que se vea el fondo alrededor, creando tu diseño enmarcado. */
   background-color: #000000; /* Fondo negro exclusivo para tu cuadro de contenido. */
   margin: auto; /* Trabaja junto con el flexbox del body para centrar la caja perfectamente en vertical y horizontal. */
   border: 2px solid #fff; /* Dibuja el marco blanco de 2 píxeles alrededor de toda tu información. */
   position: relative; /* Convierte a esta caja en el "padre". Así tus posiciones absolutas (como tu logo o menús) no se salen del cuadro. */
   z-index: 99; /* Trae el cuadro hacia adelante (capa 99) para que tape a las partículas y tus textos se puedan leer. */
-  overflow-y: auto; /* Si agregas mucho texto o más proyectos, aparecerá un scroll vertical automático solo dentro de este cuadro. */
+  /*overflow-y: auto; /* Si agregas mucho texto o más proyectos, aparecerá un scroll vertical automático solo dentro de este cuadro. */
 }
 
 #particles-js {
-  height: 93%;
-  width: 92%; /* Dimensiona el lienzo de las estrellas para que coincida casi exacto con tu cuadro. */
-  position: fixed; /* Fija la animación en su lugar. Si haces scroll en la página, las estrellas se quedan estáticas en el fondo. */
-  z-index: -1; /* Empuja el motor de partículas hasta la última capa del fondo (detrás del body y del container). */
+ position: absolute !important; /* Se ancla a tu .container */
+    top: 0 !important;
+    left: 0 !important;
+    
+    /* Le decimos que copie exactamente el ancho y alto de su padre (el marco blanco) */
+    width: 100% !important; 
+    height: 100% !important; 
+    
+    z-index: -1 !important; /* Las manda al fondo del marco, detrás de tus letras */
 }
 	
 	
@@ -336,17 +348,22 @@ nav a:hover::before {
 .copyright { 
     /* ¡Ojo! Considera cambiar <p3> por <p class="copyright"> en tu HTML */
     
-    font-size: 17px;
+    font-size: 15px; /* Le bajé a 15px para que se vea más elegante en celular, pruébalo */
     color: #fff;
-    /* Eliminado height: 13px; para no asfixiar la letra */
     
-    position: absolute;
-    bottom: 1%;
-    /* Truco DRY para centrado perfecto sin importar el tamaño del monitor */
+    position: absolute !important;;
+    bottom: -10px !important; /* Lo despegamos un poquito del piso para que respire */
+    top: auto !important; /* <--- ESTO ES VITAL: Destruye cualquier "top" que lo tenga atrapado arriba */
+    
+    /* Centrado perfecto matemático */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100; /* Asegura que el texto esté por encima de las estrellas */
-    top:95%;
+    
+    /* MAGIA PARA EL CELULAR */
+    width: 90%; /* Si la pantalla es delgada, el texto ocupa el 90% y hace salto de línea automático */
+    text-align: center; /* Mantiene el texto alineado al medio */
+    
+    z-index: 100;
 }
 
 /* =========================================
@@ -354,11 +371,14 @@ nav a:hover::before {
    ========================================= */
 /* Especificamos que SOLO afecte a la imagen directa del contenedor principal */
 .container > img {
-    max-width: 50%;
-    max-height: 50%;
-    position: absolute;
-    left: 40%;
-    bottom: 16%;
+        position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* Esto logra el centro perfecto */
+    width: 360px; /* Tamaño fijo estable */
+    z-index: 0;
+    pointer-events: none; /* Para que no estorbe los clics */
+    opacity: 1;
 }
 
 /* =========================================
@@ -407,8 +427,8 @@ body.modo-claro .wsp img {
    ADAPTACIÓN PARA PANTALLAS PEQUEÑAS (ESTILOS-INFORMACION.CSS)
    ========================================= */
 @media (max-width: 850px) {
-    h1 { font-size: 24px; top: 3%; }
-    h2 { font-size: 13px; top: 9%; }
+    h1 { font-size: 24px; top: 3%;width: 90%; }
+    h2 { font-size: 13px; top: 9%;width: 90%; }
     
     /* Movimos los contactos arriba, justo debajo de tu subtítulo */
     .contactanos {
@@ -419,20 +439,36 @@ body.modo-claro .wsp img {
         transform-origin: right top;
     }
     
-    /* Achicamos el logo central */
-    .container > img {
-        max-width: 25%;
-        max-height: 25%;
-        bottom: 30%;
-        left: 50%;
-        transform: translateX(-50%);
+    /* como amrca de agua */
+    body .container > img {
+        
+        opacity: 0.25 !important; 
     }
     
-    nav { bottom: 40%; }
     
-    /* Ajustamos las redes sociales para que no se desborden */
-    .visita {
-        transform: scale(0.8) translateX(-60%); 
-        bottom: 2%;
+  /* Manda tu menú a la base y lo distribuye en una sola línea horizontal */
+    nav {
+        position: absolute !important;
+        bottom: 3px !important;
+        left: -20px !important;
+        width: 100% !important;
+        padding: 0 8% !important; 
+        box-sizing: border-box !important;
+
+        /* LA CORRECCIÓN: Obligamos a que sea de izquierda a derecha sin saltos de línea */
+        display: flex !important; 
+        flex-direction: row !important; /* Fuerza la línea horizontal */
+        flex-wrap: nowrap !important;   /* Evita que se caigan hacia abajo */
+        justify-content: space-between !important; 
+        align-items: center !important;
+        z-index: 50;
+    }
+    
+    /* Evitamos que los enlaces actúen como bloques gigantes */
+    nav a {
+        display: inline-block !important;
+        width: auto !important; /* Solo ocupan el espacio de su texto */
+        font-size: 13px !important;
+        padding: 5px !important;
     }
 }
