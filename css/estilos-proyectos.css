@@ -374,6 +374,11 @@ body.modo-claro img {
     border-radius: 10px;
 }
 
+/* Si tus botones tienen una clase común o usas el botón de galería directamente */
+.proyecto-botones .modal-trigger {
+    margin-left: 90px; /* Ajusta este valor a 15px, 20px o lo que prefieras para separarlo */
+}
+
 /* =========================================================
    4. MODO OSCURO (FONDO NEGRO - ESTADO POR DEFECTO)
    ========================================================= */
@@ -480,3 +485,92 @@ body.modo-claro .proyectos-lista {
     }
     
 }
+
+/* =========================================
+   ESTILOS LIMPIOS PARA LA VENTANA MODAL
+   ========================================= */
+
+/* Fondo oscuro (empieza oculto) */
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caja de la ventana flotante */
+.modal-container {
+    position: relative;
+    width: 85%;
+    max-width: 850px;
+    height: 75vh;
+    background: #111;
+    border: 2px solid #00ffcc;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    overflow: hidden;
+}
+
+/* Área interna donde van los videos y fotos */
+.modal-media-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.modal-media-wrapper img, 
+.modal-media-wrapper video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Botón de cerrar (X) */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 10;
+}
+.modal-close:hover {
+    color: #00ffcc;
+}
+
+/* Botones de navegación (Flechas izq / der) */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 15px 12px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.modal-nav:hover {
+    background: rgba(0, 255, 204, 0.4);
+}
+.modal-prev { left: 15px; }
+.modal-next { right: 15px; }

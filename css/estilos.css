@@ -114,7 +114,7 @@ h2 {
     font-size: 14px;
     font-family: 'Arial', sans-serif;
     color: #fff;
-    width: 217px;
+    width: 235px;
     position: absolute;
     left: 20px; /* Misma separación que el h1 para que estén perfectamente alineados */
     top: 13%; /* Se coloca justo debajo del h1 (5% + espacio) */
@@ -123,7 +123,7 @@ h2 {
 /* =========================================
    PÁRRAFO DE PRESENTACIÓN (BIOGRAFÍA)
    ========================================= */
-p { 
+.tarjeta { 
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     color: #fff;
@@ -134,6 +134,20 @@ p {
     /* FIX: Reemplazamos el peligroso left: 1056px; que rompía monitores pequeños */
     right: 50px; /* Lo anclamos de forma segura al lado derecho de la pantalla */
     top: 5%; /* Lo alineamos a la misma altura que tu título h1 */
+
+
+    /* Mantén lo que ya tengas y agrégale estos estilos de diseño: */
+    background: rgba(15, 15, 20, 0.65); /* Fondo oscuro semitransparente para que destaquen las estrellas detrás */
+    border-left: 3px solid #00ffcc;     /* Una barrita lateral de acento neón */
+    border-top: 1px solid rgba(0, 255, 204, 0.2);
+    border-right: 1px solid rgba(0, 255, 204, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+    padding: 20px 25px;                 /* Espacio interno para que el texto respire */
+    border-radius: 8px;                 /* Esquinas ligeramente redondeadas estilo ventana moderna */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Sombra profunda para darle relieve */
+    line-height: 1.6;                   /* Espaciado cómodo entre líneas */
+    max-width: 650px;                   /* Evita que el texto se estire demasiado a lo ancho */
+    margin: 20px auto;
 }
 
 /* =========================================
@@ -337,6 +351,13 @@ body.modo-claro img {
     body .container > img {
         
         opacity: 0.25 !important; 
+    }
+    .tarjeta { 
+        width: 60% !important; 
+        left: 14% !important; 
+        right: auto !important; 
+        top: 25% !important; 
+        font-size: 13px !important;
     }
     
 }

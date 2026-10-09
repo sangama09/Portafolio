@@ -50,11 +50,13 @@
                     
                     <!-- Proyecto 1: Tu Portafolio Real -->
                     <div class="proyecto-item">
-                        <span class="proyecto-nombre">> Mi Portafolio Web (HTML/CSS)_</span>
+                        <span class="proyecto-nombre">> Mi Portafolio Web (HTML/CSS/JS)</span>
                         <div class="proyecto-botones">
                             <a href="https://github.com/sangama09/Portafolio" target="_blank" class="btn-accion">💻 GitHub</a>
-                            <button class="btn-accion modal-trigger">👁️ Galería</button>
+                           <!-- Proyecto 1 -->
+							<button class="btn-accion modal-trigger" data-id="1">👁️ Galería</button>
                         </div>
+						
                     </div>
 
                     <!-- Proyecto 2: Espacio de Relleno para pruebas -->
@@ -62,16 +64,20 @@
                         <span class="proyecto-nombre">> Proyecto de Prueba 02_</span>
                         <div class="proyecto-botones">
                             <a href="https://github.com/TU_USUARIO_GITHUB" target="_blank" class="btn-accion">💻 GitHub</a>
-                            <button class="btn-accion modal-trigger">👁️ Galería</button>
+                            <!-- Proyecto 2 -->
+							<button class="btn-accion modal-trigger" data-id="2">👁️ Galería</button>
                         </div>
                     </div>
+				
                     
                     <!-- Proyecto 3: Espacio de Relleno para pruebas -->
                     <div class="proyecto-item">
                         <span class="proyecto-nombre">> Proyecto de Prueba 03_</span>
                         <div class="proyecto-botones">
                             <a href="https://github.com/TU_USUARIO_GITHUB" target="_blank" class="btn-accion">💻 GitHub</a>
-                            <button class="btn-accion modal-trigger">👁️ Galería</button>
+                            <!-- Proyecto 3 (si deseas agregarle su propia galería después) -->
+
+							<button class="btn-accion modal-trigger" data-id="3">👁️ Galería</button>
                         </div>
                     </div>
                     
@@ -125,23 +131,22 @@
                 </div>
             </details>
 
-        </div>
+			
 
-        <!-- =========================================
+        </div>
+	
+        	<!-- =========================================
              MENÚ DE NAVEGACIÓN
              ========================================= -->
-        <nav>
+      	  <nav>
             <a href="index.html">Inicio</a> 
             <a href="proyectos.html">Proyectos</a> 
             <a href="informacion.html">Informacion</a>
-        </nav>
+        	</nav>
         
-        <!-- Efectos visuales y logo central -->
-        <div id="particles-js"></div>
-        <img src="logo/LOGO NEGRO EDIT.png" alt="Logo de Sangama Samurey">
-
-
-
+       		 <!-- Efectos visuales y logo central -->
+       		 <div id="particles-js"></div>
+       		 <img src="logo/LOGO NEGRO EDIT.png" alt="Logo de Sangama Samurey">
 
 
     </header> <!-- FIN DEL MARCO BLANCO -->
@@ -158,6 +163,44 @@
     <script src="js/particles.min.js"></script>
     <script src="js/animacion-part.js"></script>
     <script src="js/invert-color.js"></script>
+	<script src="js/proy.js"></script>
+
+	
+				<!-- =========================================
+     VENTANA MODAL / LIGHTBOX DE GALERÍA
+     ========================================= -->
+<div id="modalGaleria" class="modal-overlay">
+    <div class="modal-container">
+        <!-- Botón para cerrar (X) -->
+        <button class="modal-close" onclick="cerrarModal()">&times;</button>
+        
+        <!-- Contenedor Multimedia -->
+        <div class="modal-media-wrapper" id="modalMediaContainer">
+            <!-- ARCHIVO 1: Video PC -->
+            <video class="media-slide" controls width="100%">
+                <source src="projec/web02.mp4" type="video/mp4">
+                Tu navegador no soporta video.
+            </video>
+            
+            <!-- ARCHIVO 2: Video Móvil -->
+            <video class="media-slide" controls width="100%" style="display:none;">
+                <source src="projec/movil02.mp4" type="video/mp4">
+                Tu navegador no soporta video.
+            </video>
+            
+            <!-- ARCHIVO 3: Imagen PC -->
+            <img class="media-slide" src="projec/web01.png" alt="Vista PC" style="display:none;">
+            
+            <!-- ARCHIVO 4: Imagen Móvil -->
+            <img class="media-slide" src="projec/movil01.jpeg" alt="Vista Movil" style="display:none;">
+        </div>
+
+        <!-- Botones de Navegación (Next / Prev) -->
+        <button class="modal-nav modal-prev" onclick="cambiarMedia(-1)">&#10094;</button>
+        <button class="modal-nav modal-next" onclick="cambiarMedia(1)">&#10095;</button>
+    	
+	</div>
+
 
 </body>
 </html>
